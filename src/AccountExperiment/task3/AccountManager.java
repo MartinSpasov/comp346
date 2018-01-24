@@ -1,5 +1,7 @@
+package task3;
+
 /**
- * Class AccountManager
+ * Class task3.AccountManager
  * Implements account manager that twists depositor and withdrawal threads.
  *
  * @author Malek Barhoush, mbarhoush@hotmail.com;
@@ -61,7 +63,7 @@ public class AccountManager {
 		// Get start time in milliseconds 
 		long start = System.currentTimeMillis(); 
 
-		System.out.println("Depositor and Withdrawal threads have been created");
+		System.out.println("task3.Depositor and Withdrawal threads have been created");
 		/*
 		 * Interleave all threads
 		 */

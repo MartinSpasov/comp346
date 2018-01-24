@@ -1,6 +1,8 @@
+package task3;
+
 /**
- * Class Withdrawer
- * Implements Withdrawer thread class.
+ * Class task3.Withdrawer
+ * Implements task3.Withdrawer thread class.
  *
  * @author Malek Barhoush, mbarhoush@hotmail.com;
  * 

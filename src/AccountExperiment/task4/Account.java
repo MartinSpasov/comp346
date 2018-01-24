@@ -1,6 +1,7 @@
+package task4;
 
 /**
- * Class Account
+ * Class task3.Account
  * Implements one customized customer account for many of our own threads.
  *
  * @author Malek Barhoush, mbarhoush@hotmail.com;
@@ -31,7 +32,8 @@ public class Account {
 	 * Attribute that presents an account balance
 	 */
 	private double balance;
-	
+
+
 	/*
 	 * ------------
 	 * Constructors
@@ -133,7 +135,7 @@ public class Account {
 	 * A method to print this account 
 	 */
 	public String toString(){
-		return "Account: "+acc+" \tName: "+name+" \tBalance:\t"+balance;
+		return "task3.Account: "+acc+" \tName: "+name+" \tBalance:\t"+balance;
 	}
 
 	/**
@@ -141,15 +143,15 @@ public class Account {
 	 * @param amount A double that represents a deposit amount
 	 */
 	public void deposit(double amount){
-		
+
 		// Waste some time doing fake computations
 		// do not remove or modify any of the following 3 statements
 		double k = 999999999;
 		for(int i=0;i<100;i++)
 			k = k / 2;
-
+		synchronized (this) {
 			balance = balance + amount;
-
+		}
 		// Waste some time doing fake computations
 		// do not remove or modify any of the following 3 statements
 		k = 999999999;
@@ -170,7 +172,9 @@ public class Account {
 		for(int i=0;i<100;i++)
 			k = k / 2;
 
+		synchronized (this) {
 			balance = balance - amount;
+		}
 
 		// Waste some time doing fake computations
 		// do not remove or modify any of the following 3 statements

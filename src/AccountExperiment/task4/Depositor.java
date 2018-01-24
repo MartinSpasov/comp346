@@ -1,7 +1,8 @@
+package task4;
 
 /**
- * Class Depositor
- * Implements Depositor thread class.
+ * Class task3.Depositor
+ * Implements task3.Depositor thread class.
  *
  * @author Malek Barhoush, mbarhoush@hotmail.com;
  * 
