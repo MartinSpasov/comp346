@@ -1,9 +1,0 @@
-T1: The action of changing the balance of an acount is not an atomic action, there are three steps in it: Retrieving the value
-Adding one to the value, and storing the value. Because of that the two threads might fetch the value of balance while
-its in the middle of an operation, and thus using the wrong value.
-
-T2:
-
-T5: The advantages of using a synchronized block is that first of all only a certain part of the code will be given the lock
-not the entire method. Secondly it also allows methods to be synchronized over different locks, therefore if two methods
-can be accessed at the same time by different threads they can be synchronized over different locks.
