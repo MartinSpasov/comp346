@@ -1,3 +1,5 @@
+import common.Semaphore;
+
 /**
  * Class BlockStack
  * Implements character block stack and operations upon it.
@@ -36,6 +38,48 @@ class BlockStack
 	 */
 	public char acStack[] = new char[] {'a', 'b', 'c', 'd', '$', '$'};
 
+
+
+
+
+
+
+	//The access counter variable
+	private int accessCounter = 0;
+	//The semaphore that guards the critical section, set as signaled
+	private Semaphore accessCounterMutex = new Semaphore(1);
+	//Helper function to safely increment the access counter
+	private void incrementAccessCouter()
+	{
+		accessCounterMutex.Wait();
+		++accessCounter;
+		accessCounterMutex.Signal();
+	}
+
+	public int getAccessCounter()
+	{
+		return accessCounter;
+	}
+
+	//Basic implementation to get the code compiling for task 1
+	public int getTop()
+	{
+		return iTop;
+	}
+
+	public int getSize()
+	{
+		return iSize;
+	}
+
+	public boolean isEmpty()
+	{
+		return iTop == -1;
+	}
+
+
+
+
 	/**
 	 * Default constructor
 	 */
@@ -72,6 +116,7 @@ class BlockStack
 	 */
 	public char pick()
 	{
+		incrementAccessCouter();
 		return this.acStack[this.iTop];
 	}
 
@@ -81,6 +126,7 @@ class BlockStack
 	 */
 	public char getAt(final int piPosition)
 	{
+		incrementAccessCouter();
 		return this.acStack[piPosition];
 	}
 
@@ -90,6 +136,7 @@ class BlockStack
 	public void push(final char pcBlock)
 	{
 		this.acStack[++this.iTop] = pcBlock;
+		incrementAccessCouter();
 	}
 
 	/**
@@ -100,6 +147,7 @@ class BlockStack
 	{
 		char cBlock = this.acStack[this.iTop];
 		this.acStack[this.iTop--] = '$'; // Leave prev. value undefined
+		incrementAccessCouter();
 		return cBlock;
 	}
 }
